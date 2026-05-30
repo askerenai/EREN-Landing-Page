@@ -1,0 +1,164 @@
+Get Early Accessbody {
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Background Glow */
+
+.glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.35;
+}
+
+.glow1 {
+  background: #3b82f6;
+  top: -150px;
+  left: -150px;
+}
+
+.glow2 {
+  background: #8b5cf6;
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Logo Glow */
+
+.glow-text {
+  text-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+/* Button */
+
+.main-btn:hover {
+  box-shadow: 0 0 30px rgba(255,255,255,0.25);
+  transform: scale(1.03);
+}
+
+/* Typing Animation */
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.7);
+  padding-right: 6px;
+  animation: blink 1s infinite;
+}
+
+/* Cursor Blink */
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* =========================
+   BACKGROUND EFFECT
+========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(circle at top, rgba(0, 140, 255, 0.12), transparent 40%),
+        radial-gradient(circle at bottom, rgba(120, 0, 255, 0.08), transparent 40%),
+        #050816;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animated Grid */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridMove 20s linear infinite;
+    z-index: -2;
+}
+
+/* Floating Glow */
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: rgba(0, 140, 255, 0.08);
+    filter: blur(120px);
+    top: -100px;
+    right: -100px;
+    animation: floatGlow 8s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+/* Grid Animation */
+
+@keyframes gridMove {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(40px);
+    }
+}
+
+/* Glow Animation */
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(0,0);
+    }
+    100% {
+        transform: translate(-50px, 50px);
+    }
+}
+
+
+
+/* =========================
+   PREMIUM BUTTON EFFECT
+========================= */
+
+button {
+    padding: 14px 34px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+
+    box-shadow:
+        0 0 20px rgba(0,140,255,0.15),
+        inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+/* Hover */
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    background: rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 0 30px rgba(0,140,255,0.28),
+        0 0 60px rgba(0,140,255,0.12);
+
+    border-color: rgba(255,255,255,0.25);
+}
