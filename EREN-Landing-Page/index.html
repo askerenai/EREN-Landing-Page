@@ -40,12 +40,47 @@
       An intelligent execution AI designed for the future.
     </p>
 
-    <!-- Button -->
-    <a href="#"
-       class="main-btn px-8 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md transition duration-300 text-lg font-medium">
-       Get Early Access
-    </a>
+    <!-- EREN Waitlist Form -->
+<form id="eren-waitlist-form" class="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 w-full max-w-md mx-auto z-20 relative">
+  <input type="email" id="email-input" name="email" placeholder="Enter your email address" required 
+         class="px-6 py-4 rounded-full border border-white/20 bg-transparent text-white placeholder-zinc-500 focus:outline-none focus:border-white w-full sm:w-auto flex-grow" />
+  
+  <button type="submit" id="submit-btn" 
+          class="px-8 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 transition duration-300 text-lg font-medium whitespace-nowrap text-white cursor-pointer">
+    Get Early Access
+  </button>
+</form>
 
+<!-- Message Box -->
+<p id="waitlist-message" class="mt-4 text-sm font-medium h-5 z-20 relative"></p>
+
+<!-- EREN Backend Script -->
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxpjSTFqJg5Rn94Snn050R88YDGihDYUc43vTO2k_TXD5H1TFoflBAoZ-N6NEvoXLhU9g/exec';
+  const form = document.getElementById('eren-waitlist-form');
+  const msg = document.getElementById('waitlist-message');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.innerHTML = "Processing...";
+    
+    const data = new FormData(form);
+
+    fetch(scriptURL, { method: 'POST', body: data })
+      .then(response => {
+        msg.innerHTML = "Welcome to E.R.E.N. Waitlist! Check your email.";
+        msg.className = "mt-4 text-sm font-medium text-green-400 z-20 relative";
+        form.reset();
+        btn.innerHTML = "Get Early Access";
+      })
+      .catch(error => {
+        msg.innerHTML = "Something went wrong. Please try again.";
+        msg.className = "mt-4 text-sm font-medium text-red-400 z-20 relative";
+        btn.innerHTML = "Get Early Access";
+      });
+  });
+</script>
     <!-- FOMO Text -->
     <p class="text-zinc-500 text-sm mt-4">
       The first 100 users will unlock early access.
